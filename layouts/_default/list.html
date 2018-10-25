@@ -1,24 +1,40 @@
 <html>
-{{ partial "head" }}
-<body>
-  <div class="ui container text">
-  {{ partial "header" (dict "Kind" .Kind "Template" "List") }}
-     {{.Content}}
-     {{ range .Pages }}
-          <div style="border: 1px solid black; margin:10px; padding:10px; ">
-               <div style="font-size:20px;">
-                    <a href="{{.URL}}">{{.Title}}</a>
-               </div>
-               <div style="color:grey; font-size:16px;">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</div>
-               <div style="color:grey; font-size:16px;">{{ if .Params.tags }}<strong>Tags:</strong> {{range .Params.tags}}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
-               <div style="color:grey; font-size:16px;">{{ if .Params.categories }}<strong>Categories:</strong> {{range .Params.categories}}<a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
-               <div style="color:grey; font-size:16px;">{{ if .Params.moods }}<strong>Moods:</strong> {{range .Params.moods}}<a href="{{ "/moods/" | relLangURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}</div>
-
-               <p style="font-size:18px;">{{.Summary}}</p>
+  {{ partial "head" }}
+  <body>
+    <div class="ui container text">
+      {{ partial "header" (dict "Kind" .Kind "Template" "List") }}
+      {{.Content}}
+      <section>
+        {{ range .Pages }}
+        <article class="ui segment">
+          <div class="ui top attached label">
+            <a href="{{.URL}}">{{.Title}}</a>
           </div>
-     {{ end }}
-          {{ partial "footer" . }}
+          <p>{{.Summary}}</p>
 
-  </div>
-</body>
+          <div class="ui grid">
+            <div class="row">
+              <div class="six wide column">
+                <button class="ui tiny basic fluid icon left labeled button" role="button">
+                  <i aria-hidden="true" class="calendar outline icon"></i>
+                  {{ dateFormat "January 2, 2006" .Date }}
+                </button>
+              </div>
+              <div class="ten wide column">
+                <a class="button is-small" href="{{.URL}}">
+                  <button class="ui tiny fluid icon right labeled button" role="button">
+                    <i aria-hidden="true" class="book icon"></i>
+                    Читать далее
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+        {{ end }}
+        {{ partial "footer" . }}
+
+      </section>
+    </div>
+  </body>
 </html>
