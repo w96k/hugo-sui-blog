@@ -8,21 +8,24 @@
         {{ range .Pages }}
         <article class="ui segment">
           <div class="ui top attached label">
-            <a href="{{.URL}}">{{.Title}}</a>
+          <a href="{{.URL}}">
+            {{.Title}}
+          </a>
           </div>
-          <p>{{.Summary}}</p>
 
+          <p>{{.Summary}}</p>
+          
           <div class="ui grid">
             <div class="row">
               <div class="six wide column">
-                <button class="ui tiny basic fluid icon left labeled button" role="button">
+                <button class="ui tiny basic fluid icon left labeled button">
                   <i aria-hidden="true" class="calendar outline icon"></i>
                   {{ dateFormat "January 2, 2006" .Date }}
                 </button>
               </div>
               <div class="ten wide column">
                 <a class="button is-small" href="{{.URL}}">
-                  <button class="ui tiny fluid icon right labeled button" role="button">
+                  <button class="ui tiny fluid icon right labeled button">
                     <i aria-hidden="true" class="book icon"></i>
                     Читать далее
                   </button>
