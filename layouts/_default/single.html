@@ -6,6 +6,7 @@
     <article class="ui stacked segment">
           <h1 class="ui medium header">{{.Title}}</h1>
           <p>{{.Content}}</p>
+          {{ partial "tags" .Params.tags}}
     </article>
 </section>
      {{ partial "footer" . }}
