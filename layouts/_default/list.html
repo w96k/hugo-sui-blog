@@ -1,9 +1,5 @@
-<html>
-  {{ partial "head" }}
-  <body>
-    <div class="ui container text">
-      {{ partial "header" (dict "Kind" .Kind "Template" "List") }}
-      {{.Content}}
+{{ define "main" }}
+{{.Content}}
       <section>
         {{ range .Pages }}
         <article class="ui segment">
@@ -35,9 +31,6 @@
           </div>
         </article>
         {{ end }}
-        {{ partial "footer" . }}
 
       </section>
-    </div>
-  </body>
-</html>
+{{ end }}

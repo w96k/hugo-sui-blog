@@ -1,0 +1,12 @@
+<html>
+{{ partial "head" . }}
+<body>
+  {{ partial "header" . }}
+
+  <div class="ui text container">
+      {{ block "main" . }}{{ end }}
+  </div>
+
+  {{ partial "footer" . }}
+</body>
+</html>
