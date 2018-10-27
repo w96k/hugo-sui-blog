@@ -1,7 +1,4 @@
-<html>
-{{ partial "head" }}
-<body>
-  {{ partial "header" (dict "Kind" .Kind "Template" "Single") }}
+{{ define "main" }}
   <section class="ui text container">
     <article class="ui stacked segment">
           <h1 class="ui medium header">{{.Title}}</h1>
@@ -9,6 +6,6 @@
           {{ partial "tags" .Params.tags}}
     </article>
 </section>
-     {{ partial "footer" . }}
-</body>
-</html>
+
+{{ end }}
+
