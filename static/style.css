@@ -6,3 +6,8 @@ body {
 img {
     width: 100%;
 }
+
+#youmu {
+    position: relative;
+    bottom: -1em;
+}
