@@ -1,11 +1,12 @@
 {{ define "main" }}
-  <section class="ui text container">
-    <article class="ui stacked segment">
-          <h1 class="ui medium header">{{.Title}}</h1>
-          <p>{{.Content}}</p>
-          {{ partial "tags" .Params.tags}}
-    </article>
-</section>
+<article class="ui stacked segment">
+  <h1 class="ui medium header">{{.Title}}</h1>
+  <p>{{.Content}}</p>
+  {{ partial "tags" .Params.tags}}
+</article>
 
+<section class="ui segment">
+  {{ template "_internal/disqus.html" . }}
+</section>
 {{ end }}
 
