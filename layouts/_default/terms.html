@@ -1,23 +1,28 @@
 {{ define "main" }}
-    <div class="ui text container">
-      <div class="ui segment">
-        <div class="ui breadcrumb">
-          <a href="/" class="section">{{ .Site.Title }}</a>
-          <div class="divider"> / </div>
-          <div class="active section">{{ .Title }}</div>
-        </div>
-      </div>
-<div class="ui segment">
-  <div class="ui horizontal list">
-    {{ $data := .Data }}
-    {{ range $key, $value := .Data.Terms }}
-    <div class="item">
-      <div class="ui label">
-        <a href="/{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }}</a><span>({{ len $value }})</span>
-      </div>
+<div class="ui text container">
+  <div class="ui segment">
+    <div class="ui breadcrumb">
+      <a href="/" class="section">{{ .Site.Title }}</a>
+      <div class="divider"> / </div>
+      <div class="active section">{{ .Title }}</div>
     </div>
-    {{ end }}
   </div>
-</div>
+  <div class="ui segment">
+    <div class="ui horizontal list">
+      {{ $data := .Data }}
+      {{ range $key, $value := .Data.Terms }}
+      <div class="item">
+        <a href="/{{ $data.Plural }}/{{ $key | urlize }}">
+          <div class="ui label">
+            
+            {{ $key }}
 
-{{ end }}
+            <div class="detail">{{ len $value }}</div>
+          </div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ end }}
