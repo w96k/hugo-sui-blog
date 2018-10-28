@@ -32,41 +32,43 @@
   </article>
   {{ end }}
 
+  {{ if lt .Paginator.TotalPages 1 }}
+
   <div class="ui center aligned segment">
-  <div class="ui secondary compact stackable menu">
-    {{ if .Paginator.HasPrev }}
-    <a href="{{ .Paginator.First.URL }}" class="item">
-      <i class="ui angle double left icon"></i>
-    </a>
-    
-    <a href="{{ .Paginator.Prev.URL }}" class="item">
-      <i class="ui angle left icon"></i>
-    </a>
+    <div class="ui secondary compact stackable menu">
+      {{ if .Paginator.HasPrev }}
+      <a href="{{ .Paginator.First.URL }}" class="item">
+        <i class="ui angle double left icon"></i>
+      </a>
+      
+      <a href="{{ .Paginator.Prev.URL }}" class="item">
+        <i class="ui angle left icon"></i>
+      </a>
 
-    {{ if .Paginator.Prev.HasPrev }}
-    <a href="{{ .Paginator.Prev.Prev.URL }}" class="item">
-      {{ .Paginator.Prev.Prev.PageNumber }}
-    </a>
-    {{ end }}
-    
-    <a href="{{ .Paginator.Prev.URL }}" class="item">
-      {{ .Paginator.Prev.PageNumber }}
-    </a>
-    {{ end }}
-    
-    <a class="active item">
-      {{ .Paginator.PageNumber }}
-    </a>
-    {{ if .Paginator.HasNext }}
-    <a href="{{ .Paginator.Next.URL }}" class="item">
-      {{ .Paginator.Next.PageNumber }}
-    </a>
+      {{ if .Paginator.Prev.HasPrev }}
+      <a href="{{ .Paginator.Prev.Prev.URL }}" class="item">
+        {{ .Paginator.Prev.Prev.PageNumber }}
+      </a>
+      {{ end }}
+      
+      <a href="{{ .Paginator.Prev.URL }}" class="item">
+        {{ .Paginator.Prev.PageNumber }}
+      </a>
+      {{ end }}
+      
+      <a class="active item">
+        {{ .Paginator.PageNumber }}
+      </a>
+      {{ if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}" class="item">
+        {{ .Paginator.Next.PageNumber }}
+      </a>
 
-    {{ if .Paginator.Next.HasNext }}
-    <a href="{{ .Paginator.Next.Next.URL }}" class="item">
-      {{ .Paginator.Next.Next.PageNumber }}
-    </a>
-    {{ end}}
+      {{ if .Paginator.Next.HasNext }}
+      <a href="{{ .Paginator.Next.Next.URL }}" class="item">
+        {{ .Paginator.Next.Next.PageNumber }}
+      </a>
+      {{ end}}
 
       <a href="{{ .Paginator.Next.URL }}" class="item">
         <i class="ui angle right icon"></i>
@@ -76,11 +78,11 @@
         <i class="ui angle double right icon"></i>
       </a>
 
-    {{ end }}
-  </div>
+      {{ end }}
+    </div>
   </div>
 
-
+  {{ end }}
 
 </section>
 {{ end }}
