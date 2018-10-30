@@ -7,6 +7,10 @@ img {
     width: 100%;
 }
 
+article.ui.segment {
+
+}
+
 #youmu {
     position: relative;
     bottom: -1em;
