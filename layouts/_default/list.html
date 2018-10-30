@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{.Content}}
-<section>
+<section class="ui row">
+  <div class="ui column">
   {{ range (.Paginator).Pages }}
   <article class="ui segment">
 
@@ -84,6 +85,6 @@
   </div>
 
   {{ end }}
-
+</div>
 </section>
 {{ end }}

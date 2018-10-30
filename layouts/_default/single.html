@@ -1,12 +1,15 @@
 {{ define "main" }}
-<section>
-  <article class="ui piled very padded fluid segment">
-    <h1 class="ui large header">{{.Title}}</h1>
-    <p>{{.Content}}</p>
-    {{ partial "tags" .Params.tags}}
-  </article>
-  <div class="ui fluid segment">
-    {{ template "_internal/disqus.html" . }}
+<section class="ui row">
+  <div class="ui column">
+    <article class="ui piled very padded fluid segment">
+      <h1 class="ui large header">{{.Title}}</h1>
+      <div class="ui divider"></div>
+      <p>{{.Content}}</p>
+      {{ partial "tags" .Params.tags}}
+    </article>
+    <div class="ui fluid segment">
+      {{ template "_internal/disqus.html" . }}
+    </div>
   </div>
 </section>
 
