@@ -1,0 +1,19 @@
+<!--
+    Shortcode for inserting a label from Semantic-UI 
+
+    First argument is text,
+    Second is detail
+    Third is icon name
+  -->
+
+<span class="ui label">
+  {{ if .Get "icon" }}
+  <i class="ui {{.Get "icon"}} icon"></i>
+  {{ end }}
+  {{ .Get "text" }}
+  {{ if .Get "detail" }}
+  <span class="detail">
+    {{ .Get "detail" }}
+  </span>
+  {{ end }}
+</span>
