@@ -3,7 +3,6 @@
 <section class="ui row">
   <div class="ui column">
     {{ range (.Paginator).Pages }}
-    {{ if ne .Section "pages" }}
     <article class="ui segment">
 
       <div class="ui top attached label">
@@ -33,7 +32,6 @@
         </div>
       </div>
     </article>
-    {{ end }}
     {{ end }}
 
     {{ if lt .Paginator.TotalPages 1 }}
