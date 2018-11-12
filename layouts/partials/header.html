@@ -2,12 +2,12 @@
   <div class="ui column">
     <div class="ui secondary center aligned fluid segment">
       <h1 class="ui header">
-        <a href="/">@w96k</a>
+        <a href="/">{{ .Site.Title }}</a>
         <div class="sub header">
           <div class="ui horizontal list">
-            <div class="item">Dev</div>
-            <div class="item">Otaku</div>
-            <div class="item">Gamer</div>
+            {{ range .Site.Params.about}}
+            <div class="item">{{ . }}</div>
+            {{ end }}
           </div>
         </div>
 
@@ -15,12 +15,12 @@
       <div class="ui mobile only center aligned grid">
         <div class="ui row">
           <div class="ui column">
-          <a href="/pages/about">
-            <button class="ui fluid tiny primary icon left labeled button">
-              <i aria-hidden="true" class="ui user icon"></i>
-              About me
-            </button>
-          </a>
+            <a href="/pages/about">
+              <button class="ui fluid tiny primary icon left labeled button">
+                <i aria-hidden="true" class="ui user icon"></i>
+                About me
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -28,30 +28,16 @@
       <div class="ui tablet computer only center aligned grid">
         <div class="ui row">
           <div class="ui horizontal list">
+            {{range  .Site.Params.social}}
             <div class="item">
-              <a href="https://github.com/w96k/" target="_blank">
+              <a href="{{.link}}" target="{{.target}}">
                 <button class="ui compact tiny basic icon left labeled button">
-                  <i aria-hidden="true" class="ui github icon"></i>
-                  Github
+                  <i aria-hidden="true" class="ui {{.icon}} icon"></i>
+                  {{.text}}
                 </button>
               </a>
             </div>
-            <div class="item">
-              <a href="/pages/about">
-                <button class="ui compact tiny basic icon left labeled button">
-                  <i aria-hidden="true" class="ui user icon"></i>
-                  About me
-                </button>
-              </a>
-            </div>
-            <div class="item"> 
-              <a href="https://t.me/w96k_blog" target="_blank">
-                <button class="ui compact tiny basic icon left labeled button">
-                  <i aria-hidden="true" class="ui telegram icon"></i>
-                  Telegram
-                </button>
-              </a>
-            </div>
+            {{end}}
           </div>
         </div>
       </div>
