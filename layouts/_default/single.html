@@ -7,11 +7,9 @@
       <p>{{.Content}}</p>
       {{ partial "tags" .Params.tags}}
     </article>
-    {{ with .Site.Params.comments }}
     <div class="ui fluid segment">
       {{ template "_internal/disqus.html" . }}
     </div>
-    {{ end }}
   </div>
 </section>
 
