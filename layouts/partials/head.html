@@ -4,46 +4,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ .Site.Title }}</title>
 
-  <!-- Preload stuff -->
-  <link rel="preload" as="style" href="/semantic/components/breadcrumb.min.css">
-  <link rel="preload" as="style" href="/semantic/components/button.min.css">
-  <link rel="preload" as="style" href="/semantic/components/container.min.css">
-  <link rel="preload" as="style" href="/semantic/components/divider.min.css">
-  <link rel="preload" as="style" href="/semantic/components/grid.min.css">
-  <link rel="preload" as="style" href="/semantic/components/header.min.css">
-  <link rel="preload" as="style" href="/semantic/components/icon.min.css">
-  <link rel="preload" as="style" href="/semantic/components/image.min.css">
-  <link rel="preload" as="style" href="/semantic/components/item.min.css">
-  <link rel="preload" as="style" href="/semantic/components/label.min.css">
-  <link rel="preload" as="style" href="/semantic/components/list.min.css">
-  <link rel="preload" as="style" href="/semantic/components/reset.min.css">
-  <link rel="preload" as="style" href="/semantic/components/segment.min.css">
-  <link rel="preload" as="style" href="/semantic/components/shape.min.css">
-  <link rel="preload" as="style" href="/semantic/components/site.min.css">
-  <link rel="preload" as="style" href="/semantic/components/table.min.css">
-  <link rel="preload" as="style" href="/semantic/components/menu.min.css">
-
-  <!-- Semantic-UI needed components for theme -->
-  <link rel="stylesheet" href="/semantic/components/breadcrumb.min.css">
-  <link rel="stylesheet" href="/semantic/components/button.min.css">
-  <link rel="stylesheet" href="/semantic/components/container.min.css">
-  <link rel="stylesheet" href="/semantic/components/divider.min.css">
-  <link rel="stylesheet" href="/semantic/components/grid.min.css">
-  <link rel="stylesheet" href="/semantic/components/header.min.css">
-  <link rel="stylesheet" href="/semantic/components/icon.min.css">
-  <link rel="stylesheet" href="/semantic/components/image.min.css">
-  <link rel="stylesheet" href="/semantic/components/item.min.css">
-  <link rel="stylesheet" href="/semantic/components/label.min.css">
-  <link rel="stylesheet" href="/semantic/components/list.min.css">
-  <link rel="stylesheet" href="/semantic/components/reset.min.css">
-  <link rel="stylesheet" href="/semantic/components/segment.min.css">
-  <link rel="stylesheet" href="/semantic/components/shape.min.css">
-  <link rel="stylesheet" href="/semantic/components/site.min.css">
-  <link rel="stylesheet" href="/semantic/components/table.min.css">
-  <link rel="stylesheet" href="/semantic/components/menu.min.css">
-
-
   <!-- Custom styles for proper theme look -->
-  <link rel="stylesheet" href="/style.css">
+
+  {{ $semantic := resources.Get "semantic/semantic.css" | postCSS | minify | fingerprint }}
+  {{ $custom := resources.Get "custom.css" | postCSS | minify | fingerprint }}
+
+
+  <link rel="stylesheet" href="{{ $semantic.Permalink }}">
+  <link rel="stylesheet" href="{{ $custom.Permalink }}">
   
 </head>
