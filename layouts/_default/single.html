@@ -1,22 +1,20 @@
 {{ define "main" }}
-<section class="ui row">
-  <div class="ui column">
-    <article class="ui very padded fluid segment">
-      <h1 class="ui large header">{{.Title}}</h1>
-      <div class="ui divider"></div>
-      <p>{{.Content}}</p>
-      {{ partial "tags" .Params.tags}}
-    </article>
 
-    {{ if .Site.Params.comments }}
+<div class="ui text basic segment containter"> 
+    <h1 class="ui header">{{.Title}}</h1>
 
-    <div class="ui fluid segment">
-      {{ template "_internal/disqus.html" . }}
-    </div>
-    
-    {{ end }}    
-  </div>
-</section>
+    <p>{{.Content}}</p>
+    {{ partial "tags" .Params.tags}}
+</article>
+
+{{ if .Site.Params.comments }}
+
+{{ template "_internal/disqus.html" . }}
 
 {{ end }}
+
+</div>
+
+{{ end }}
+
 

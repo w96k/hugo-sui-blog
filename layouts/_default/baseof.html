@@ -1,10 +1,12 @@
 <html>
-{{ partial "head" . }}
-<body>
-  <div class="ui text grid container">
-      {{ partial "header" . }}
-      {{ block "main" . }}{{ end }}
-      {{ partial "footer" . }}
-  </div>
-</body>
+    {{ partial "head" . }}
+    <body>
+        <div class="ui text container">
+            {{ partial "header" . }}
+            <div class="ui bottom attached segment">
+                {{ block "main" . }}{{ end }}
+            </div>
+            {{ partial "footer" . }}
+        </div>
+    </body>
 </html>

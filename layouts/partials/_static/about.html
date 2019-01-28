@@ -1,34 +1,35 @@
 <html>
-  {{ partial "head" . }}
-  <body>
-    <div class="ui text grid container">
-      {{ partial "header" . }}
+    {{ partial "head" . }}
+    <body>
+        <div class="ui text container">
 
+            {{ partial "header" . }}
 
-      <div class="ui row">
-        <div class="ui column">
-          <div class="ui piled very padded segment">
-            <h2 class="ui large header">{{ .Title }}</h2>
-            <div class="ui divider"></div>
-            <div class="ui stackable grid">
-              <div class="ui row">
-                <div class="ui six wide column">
-                  <img class="ui fluid rounded image" src="{{.Params.ava}}">
+            <div class="ui bottom attached segment">
+                <div class="ui stackable grid">
+                    <div class="ui row">
+                        <div class="ui six wide column">
+                            <img class="ui rounded bordered image" src="{{.Params.ava}}">
+                        </div>
+                        <div class="ui ten wide column">
+                            <h2 class="ui medium header">{{ .Params.greeting }}</h2>
+                            <p>{{ .Content }}</p>
+                            <div class="ui horizontal list">
+                                {{ range .Site.Params.social }}
+                                <div class="item">
+                                    <a href="{{ .link }}" class="ui compact {{ .color }} button">
+                                        <i class="ui {{ .icon }} icon"></i>
+                                        {{ .text }}
+                                    </a>
+                                </div>
+
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="ui ten wide column">
-                  <p>{{ .Content }}</p>
-
-                </div>
-              </div>
             </div>
-          </div>
+            {{ partial "footer" . }}            
         </div>
-      </div>
-
-
-
-      
-      {{ partial "footer" . }}
-    </div>
-  </body>
+    </body>
 </html>

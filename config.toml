@@ -1,4 +1,4 @@
-languageCode = "en"
 title = "Hugo-SUI-Blog"
 baseurl = ""
 assetDir = "static"
+sectionPagesMenu = "main"

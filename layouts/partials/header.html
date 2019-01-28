@@ -1,47 +1,71 @@
-<div class="ui row">
-  <div class="ui column">
-    <div class="ui secondary center aligned fluid segment">
-      <h1 class="ui header">
-        <a href="/">{{ .Site.Title }}</a>
-        <div class="sub header">
-          <div class="ui horizontal list">
-            {{ range .Site.Params.about}}
-            <div class="item">{{ . }}</div>
-            {{ end }}
-          </div>
-        </div>
+<a href="/">
+    <h1>
+        {{ .Site.Title }}
+    </h1>
+</a>
 
-      </h1>
-      <div class="ui mobile only center aligned grid">
-        <div class="ui row">
-          <div class="ui column">
-            <a href="/pages/about">
-              <button class="ui fluid tiny primary icon left labeled button">
-                <i aria-hidden="true" class="ui user icon"></i>
-                About me
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
+{{ $currentPage := . }}
 
-      <div class="ui tablet computer only center aligned grid">
-        <div class="ui row">
-          <div class="ui horizontal list">
-            {{range  .Site.Params.social}}
-            <div class="item">
-              <a href="{{.link}}" target="{{.target}}">
-                <button class="ui compact tiny basic icon left labeled button">
-                  <i aria-hidden="true" class="ui {{.icon}} icon"></i>
-                  {{.text}}
-                </button>
-              </a>
+<div class="ui top attached tabular menu">
+
+    {{ range .Site.Menus.main }}
+
+    {{ if .HasChildren }}
+
+    {{ if ne .Identifier ""}}
+
+    <a
+        href="{{ .URL }}"
+        class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{end}} item"
+        title="{{ .Title }}"
+    >
+        {{ .Name }}
+    </a>
+
+    {{ end }}
+
+    {{ else }}
+
+    <a
+        class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }} item" href="{{ .URL }}"
+        title="{{ .Title }}"
+    >
+        {{ .Name }}
+    </a>
+
+    {{ end }}
+
+    {{ end }} 
+
+    <div id="search-menu" class="right menu">
+        <div class="item">
+            <div class="ui transparent icon input">
+                <input placeholder="Search users..." type="text">
+                <i class="search link icon"></i>
             </div>
-            {{end}}
-          </div>
         </div>
-      </div>
-
     </div>
-  </div>
 </div>
+
+<!-- <script>
+$('document').ready(function() {
+console.log("Jquery loaded");
+$.getScript( "/semantic/semantic.min.js", function() {
+console.log("Semantic JS Loaded");
+$('#search')
+.search({
+apiSettings: {
+url: '//api.github.com/search/repositories?q={query}'
+},
+fields: {
+results : 'items',
+title   : 'name',
+url     : 'html_url'
+},
+})
+;
+})
+})
+
+</script>
+-->
