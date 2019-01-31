@@ -1,8 +1,13 @@
 {{ define "main" }}
 <div class="ui column">
     <article class="ui text segment containter"> 
-        <h1 class="ui header">{{.Title}}</h1>
-
+        <h1 class="ui header">
+            {{.Title}}
+            <div class="sub header">
+                <i class="ui calendar outline icon"></i>
+                {{ .Date.Format "Jan 2 2006" }}
+            </div>
+        </h1>
         <p>{{.Content}}</p>
         {{ partial "tags" .Params.tags}}
     </article>
