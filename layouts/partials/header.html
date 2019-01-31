@@ -1,71 +1,42 @@
-<a href="/">
-    <h1>
-        {{ .Site.Title }}
-    </h1>
-</a>
-
-{{ $currentPage := . }}
-
-<div class="ui top attached tabular menu">
-
-    {{ range .Site.Menus.main }}
-
-    {{ if .HasChildren }}
-
-    {{ if ne .Identifier ""}}
-
-    <a
-        href="{{ .URL }}"
-        class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{end}} item"
-        title="{{ .Title }}"
-    >
-        {{ .Name }}
+<div class="ui column">
+    <a href="/">
+        <h1>
+            {{ .Site.Title }}
+        </h1>
     </a>
 
-    {{ end }}
+    {{ $currentPage := . }}
 
-    {{ else }}
+    <div class="ui fluid menu">
 
-    <a
-        class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }} item" href="{{ .URL }}"
-        title="{{ .Title }}"
-    >
-        {{ .Name }}
-    </a>
+        {{ range .Site.Menus.main }}
 
-    {{ end }}
+        {{ if .HasChildren }}
 
-    {{ end }} 
+        {{ if ne .Identifier ""}}
 
-    <div id="search-menu" class="right menu">
-        <div class="item">
-            <div class="ui transparent icon input">
-                <input placeholder="Search users..." type="text">
-                <i class="search link icon"></i>
-            </div>
-        </div>
+        <a
+            href="{{ .URL }}"
+            class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{end}} item"
+            title="{{ .Title }}"
+        >
+            {{ .Name }}
+        </a>
+
+        {{ end }}
+
+        {{ else }}
+
+        <a
+            class="{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active {{ end }} item" href="{{ .URL }}"
+            title="{{ .Title }}"
+        >
+            {{ .Name }}
+        </a>
+
+        {{ end }}
+
+        {{ end }} 
+
     </div>
 </div>
-
-<!-- <script>
-$('document').ready(function() {
-console.log("Jquery loaded");
-$.getScript( "/semantic/semantic.min.js", function() {
-console.log("Semantic JS Loaded");
-$('#search')
-.search({
-apiSettings: {
-url: '//api.github.com/search/repositories?q={query}'
-},
-fields: {
-results : 'items',
-title   : 'name',
-url     : 'html_url'
-},
-})
-;
-})
-})
-
-</script>
--->

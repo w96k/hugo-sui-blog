@@ -2,11 +2,17 @@
     {{ partial "head" . }}
     <body>
         <div class="ui text container">
-            {{ partial "header" . }}
-            <div class="ui bottom attached segment">
-                {{ block "main" . }}{{ end }}
+            <div class="ui grid">
+                <div class="ui row">
+                    {{ partial "header" . }}
+                </div>
+                <div class="ui row">
+                    {{ block "main" . }}{{ end }}
+                </div>
+                <div class="ui stackable row">
+                    {{ partial "footer" . }}
+                </div>
             </div>
-            {{ partial "footer" . }}
         </div>
     </body>
 </html>

@@ -1,17 +1,19 @@
 {{ define "main" }}
+<div class="ui column">
+    <article class="ui text segment containter"> 
+        <h1 class="ui header">{{.Title}}</h1>
 
-<div class="ui text basic segment containter"> 
-    <h1 class="ui header">{{.Title}}</h1>
+        <p>{{.Content}}</p>
+        {{ partial "tags" .Params.tags}}
+    </article>
 
-    <p>{{.Content}}</p>
-    {{ partial "tags" .Params.tags}}
-</article>
+    {{ if .Site.Params.comments }}
 
-{{ if .Site.Params.comments }}
+    <div class="ui segment">
+        {{ template "_internal/disqus.html" . }}
+    </div>
 
-{{ template "_internal/disqus.html" . }}
-
-{{ end }}
+    {{ end }}
 
 </div>
 

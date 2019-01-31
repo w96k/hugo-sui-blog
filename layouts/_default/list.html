@@ -1,81 +1,79 @@
 {{ define "main" }}
-{{.Content}}
-<section class="ui row">
-    <div class="ui column">
-        <div class="ui three stackable cards">
+<div class="ui column">
+    {{.Content}}
+    <div class="ui three stackable cards">
 
-            {{ if .IsHome }}
+        {{ if .IsHome }}
 
-            {{ $paginator := .Paginate (where .Pages "Section" "posts") 5 }}
+        {{ $paginator := .Paginate (where .Pages "Section" "posts") 5 }}
 
-            {{ range $paginator.Pages }}
+        {{ range $paginator.Pages }}
 
-            {{ partial "card" . }}
-
-            {{ end }}
-
-            {{ else }}
-
-            {{ range (.Paginator).Pages }}
-
-            {{ partial "card" . }}
-
-            {{ end }}
-
-            {{ end }}
-        </div>
-
-        {{ if lt .Paginator.TotalPages 1 }}
-
-
-        <div class="ui secondary compact stackable menu">
-            {{ if .Paginator.HasPrev }}
-            <a href="{{ .Paginator.First.URL }}" class="item">
-                <i class="ui angle double left icon"></i>
-            </a>
-            
-            <a href="{{ .Paginator.Prev.URL }}" class="item">
-                <i class="ui angle left icon"></i>
-            </a>
-
-            {{ if .Paginator.Prev.HasPrev }}
-            <a href="{{ .Paginator.Prev.Prev.URL }}" class="item">
-                {{ .Paginator.Prev.Prev.PageNumber }}
-            </a>
-            {{ end }}
-            
-            <a href="{{ .Paginator.Prev.URL }}" class="item">
-                {{ .Paginator.Prev.PageNumber }}
-            </a>
-            {{ end }}
-            
-            <a class="active item">
-                {{ .Paginator.PageNumber }}
-            </a>
-            {{ if .Paginator.HasNext }}
-            <a href="{{ .Paginator.Next.URL }}" class="item">
-                {{ .Paginator.Next.PageNumber }}
-            </a>
-
-            {{ if .Paginator.Next.HasNext }}
-            <a href="{{ .Paginator.Next.Next.URL }}" class="item">
-                {{ .Paginator.Next.Next.PageNumber }}
-            </a>
-            {{ end}}
-
-            <a href="{{ .Paginator.Next.URL }}" class="item">
-                <i class="ui angle right icon"></i>
-            </a>
-
-            <a href="{{ .Paginator.Last.URL }}" class="item">
-                <i class="ui angle double right icon"></i>
-            </a>
-
-            {{ end }}
-        </div>
-
+        {{ partial "card" . }}
 
         {{ end }}
-        </div>
-</section>
+
+        {{ else }}
+
+        {{ range (.Paginator).Pages }}
+
+        {{ partial "card" . }}
+
+        {{ end }}
+
+        {{ end }}
+    </div>
+
+    {{ if lt .Paginator.TotalPages 1 }}
+
+
+    <div class="ui secondary compact stackable menu">
+        {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.First.URL }}" class="item">
+            <i class="ui angle double left icon"></i>
+        </a>
+        
+        <a href="{{ .Paginator.Prev.URL }}" class="item">
+            <i class="ui angle left icon"></i>
+        </a>
+
+        {{ if .Paginator.Prev.HasPrev }}
+        <a href="{{ .Paginator.Prev.Prev.URL }}" class="item">
+            {{ .Paginator.Prev.Prev.PageNumber }}
+        </a>
+        {{ end }}
+        
+        <a href="{{ .Paginator.Prev.URL }}" class="item">
+            {{ .Paginator.Prev.PageNumber }}
+        </a>
+        {{ end }}
+        
+        <a class="active item">
+            {{ .Paginator.PageNumber }}
+        </a>
+        {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="item">
+            {{ .Paginator.Next.PageNumber }}
+        </a>
+
+        {{ if .Paginator.Next.HasNext }}
+        <a href="{{ .Paginator.Next.Next.URL }}" class="item">
+            {{ .Paginator.Next.Next.PageNumber }}
+        </a>
+        {{ end}}
+
+        <a href="{{ .Paginator.Next.URL }}" class="item">
+            <i class="ui angle right icon"></i>
+        </a>
+
+        <a href="{{ .Paginator.Last.URL }}" class="item">
+            <i class="ui angle double right icon"></i>
+        </a>
+
+        {{ end }}
+    </div>
+
+
+    {{ end }}
+</div>
 {{ end }}
