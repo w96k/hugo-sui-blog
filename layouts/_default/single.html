@@ -1,26 +1,30 @@
 {{ define "main" }}
-<div class="ui column">
-    <article class="ui text container segment"> 
-        <h1 class="ui header">
-            {{.Title}}
-            <div class="sub header">
-                <i class="ui calendar outline icon"></i>
-                {{ .Date.Format "Jan 2 2006" }}
-            </div>
-        </h1>
-        <p>{{.Content}}</p>
-        {{ partial "tags" .Params.tags}}
-    </article>
+
+
+<div class="ui segment text container">
+    <h1 class="ui header">
+        {{.Title}}
+        <div class="sub header">
+            <i class="ui calendar outline icon"></i>
+            {{ .Date.Format "Jan 2 2006" }}
+        </div>
+    </h1>
+    <p>{{.Content}}</p>
+    {{ partial "tags" .Params.tags}}
+
+
 
     {{ if .Site.Params.comments }}
 
-    <div class="ui segment">
+
+    <div class="ui fluid segment">
         {{ template "_internal/disqus.html" . }}
     </div>
 
-    {{ end }}
-
 </div>
+
+{{ end }}
+
 
 {{ end }}
 
