@@ -1,0 +1,41 @@
+<div class="ui text container segment">
+    <div class="ui stackable grid">
+        <div class="ten wide column">
+            <h2 class="ui header">
+                {{ .Title }}
+                <div class="sub header">
+                    <i class="ui calendar outline icon"></i>
+                    {{ .Date.Format "Jan 2 2006" }}
+                </div>
+            </h2>
+            <p>{{ .Summary }}</p>
+        </div>
+
+        <div class="six wide column">
+            <p>
+
+                {{ range .Params.tags }}
+                <div class="ui label">{{ . }}</div>
+                {{ end }}
+            </p>
+            
+            <a href="{{ .URL }}" class="ui card">
+
+                <div class="medium image">
+                    {{ if .Params.cover }}
+                    <img src="{{ .Params.cover }}">
+                    {{ end }}
+                </div>
+            </a>
+
+
+
+            <a href="{{ .URL }}" class="ui fluid primary right labeled icon button">
+                Читать далее
+                <i class="ui eye icon"></i>
+            </a>
+        </div>
+
+
+    </div>
+</div>
