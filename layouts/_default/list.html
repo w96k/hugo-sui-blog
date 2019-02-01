@@ -16,7 +16,7 @@
 
 
     <div class="ui three stackable cards" style="margin-top: 1em;">
-        {{ range last 4 $paginator.Pages }}
+        {{ range after 1 $paginator.Pages }}
 
         {{ partial "card" . }}
 
