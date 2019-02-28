@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-
 <div class="ui segment text container">
     <h1 class="ui header">
         {{.Title}}
@@ -10,21 +9,16 @@
         </div>
     </h1>
     <p>{{.Content}}</p>
+    
     {{ partial "tags" .Params.tags}}
-
-
 
     {{ if .Site.Params.comments }}
 
+    {{ template "_internal/disqus.html" . }}
 
-    <div class="ui fluid segment">
-        {{ template "_internal/disqus.html" . }}
-    </div>
-
+    {{ end }}
+    
 </div>
-
-{{ end }}
-
 
 {{ end }}
 

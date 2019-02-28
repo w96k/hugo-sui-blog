@@ -9,7 +9,7 @@
                 </div>
             </h2>
 
-            <p>{{ .Summary }}</p>
+            <div>{{ .Summary | markdownify }}</div>
 
         </div>
 
@@ -20,6 +20,8 @@
                 <div class="ui label">{{ . }}</div>
                 {{ end }}
             </p>
+
+            {{ if .Params.cover }}
             
             <a href="{{ .URL }}" class="ui card">
 
@@ -30,10 +32,12 @@
                 </div>
             </a>
 
+            {{ end }}
+
 
 
             <a href="{{ .URL }}" class="ui fluid primary right labeled icon button">
-                Читать далее
+                Читать
                 <i class="ui eye icon"></i>
             </a>
         </div>
@@ -41,6 +45,3 @@
 
     </div>
 </div>
-
-
-

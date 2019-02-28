@@ -5,18 +5,23 @@
                 <img class="ui rounded bordered centered medium image" src="{{.Params.ava}}">
             </div>
             <div class="ui ten wide column">
-                <h2 class="ui medium header">{{ .Params.greeting }}</h2>
+                <h2 class="ui large header">{{ .Params.greeting }}</h2>
                 <p>{{ .Content }}</p>
-                <div class="ui equal width stackable grid">
-                    {{ range .Site.Params.social }}
-                    <div class="column">
-                        <a href="{{ .link }}" class="ui compact {{ .color }} fluid button">
-                            <i class="ui {{ .icon }} icon"></i>
-                            {{ .text }}
-                        </a>
-                    </div>
+            </div>
 
-                    {{ end }}
+            <div class="ui row">
+                <div class="ui column">
+                    <div class="ui equal width stackable grid">
+                        {{ range .Site.Params.social }}
+                        <div class="column">
+                            <a href="{{ .link }}" class="ui {{ .color }} fluid button">
+                                <i class="ui {{ .icon }} icon"></i>
+                                {{ .text }}
+                            </a>
+                        </div>
+
+                        {{ end }}
+                    </div>
                 </div>
             </div>
         </div>
