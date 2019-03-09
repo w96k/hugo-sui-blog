@@ -7,15 +7,15 @@
     <div class="content">
         <div class="header">
             {{ .Title }}
-            </div>
-            <div class="meta">
-                <i class="ui calendar outline icon"></i>
-                {{ .Date.Format "Jan 2 2006" }}
-            </div>
-            <div class="description">
-                {{ range .Params.tags }}
-                <div class="ui label">{{ . }}</div>
-                {{ end }}
-            </div>
+        </div>
+        <div class="meta">
+            <i class="ui calendar outline icon"></i>
+            {{ .Date.Format "Jan 2 2006" }}
+        </div>
+        <div class="description">
+            {{ range .Params.tags }}
+            <div class="ui label">{{ . }}</div>
+            {{ end }}
+        </div>
     </div>
 </a>

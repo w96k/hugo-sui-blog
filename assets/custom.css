@@ -26,3 +26,6 @@ article.ui.segment {
     bottom: -1em;
 }
 
+.ui.label {
+    margin: 0.25em !important;
+}
