@@ -1,47 +1,27 @@
-<div class="ui segment"> 
-    <div class="ui stackable grid">
-        <div class="ten wide column">
-            <h2 class="ui header">
-                {{ .Title }}
-                <div class="sub header">
-                    <i class="ui calendar outline icon"></i>
-                    {{ .Date.Format "Jan 2 2006" }}
-                </div>
-            </h2>
+<a href="{{.URL}}" class="ui fluid card">
 
-            <div>{{ .Summary | markdownify }}</div>
-
+    <div class="content">
+        <div class="ui large header">
+            {{ .Title }}
+            <div class="sub header">
+                <i class="ui calendar outline icon"></i>
+                {{ .Date.Format "Jan 2 2006" }}
+            </div>
         </div>
 
-        <div class="six wide column">
-            <p>
-
-                {{ range .Params.tags }}
-                <div class="ui label">{{ . }}</div>
-                {{ end }}
-            </p>
-
-            {{ if .Params.cover }}
-            
-            <a href="{{ .URL }}" class="ui card">
-
-                <div class="medium image">
-                    {{ if .Params.cover }}
-                    <img src="{{ .Params.cover }}">
-                    {{ end }}
-                </div>
-            </a>
-
+        <p>
+            {{ range .Params.tags }}
+            <div class="ui label">{{ . }}</div>
             {{ end }}
+        </p>
 
-
-
-            <a href="{{ .URL }}" class="ui fluid primary right labeled icon button">
-                Читать
-                <i class="ui eye icon"></i>
-            </a>
-        </div>
-
-
+        <div class="description">{{ .Summary }}</div>
     </div>
-</div>
+    <div class="extra content">
+        <div class="ui fluid button">
+            Читать далее
+        </div>
+    </div>
+</a>
+
+
