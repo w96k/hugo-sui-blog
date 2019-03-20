@@ -4,12 +4,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ if .Params.Title }} {{ .Params.Title }} | {{ end }} {{ .Site.Title }}</title>
 
-  {{ $semantic := resources.Get "semantic/semantic.css" | postCSS | minify | fingerprint }}
-  {{ $custom := resources.Get "custom.css" | postCSS | minify | fingerprint }}
+  {{ $semantic := resources.Get "/semantic/semantic.css" | postCSS | minify | fingerprint }}
+  {{ $custom := resources.Get "/custom.css" | postCSS | minify | fingerprint }}
 
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
 
   <link rel="stylesheet" href="{{ $semantic.Permalink }}">
-  <link rel="stylesheet" href="{{ $custom.Permalink }}">
+  <link rel="stylesheet" href="{{ $custom.Permalink }}"> 
 
   {{ if .RSSLink }}
   <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />

@@ -27,5 +27,5 @@ article.ui.segment {
 }
 
 .ui.label {
-    margin: 0.25em !important;
+    margin: 0.25em 0.1em !important;
 }
