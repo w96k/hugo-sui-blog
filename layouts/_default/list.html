@@ -7,7 +7,7 @@
 
     {{ $paginator := .Paginate (where .Pages "Section" "posts") 5 }}
 
-    {{ range first 1 $paginator.Pages }}
+    {{ range first 1 $paginator.Pages.ByDate.Reverse }}
     
     {{ partial "fluid-card" . }}
 
@@ -15,7 +15,7 @@
 
 
     <div class="ui two stackable cards" style="margin-top: 1em;">
-        {{ range after 1 $paginator.Pages }}
+        {{ range after 1 $paginator.Pages.ByDate.Reverse }}
 
         {{ partial "card" . }}
 
@@ -26,7 +26,7 @@
     {{ else }}
     <div class="ui three stackable cards">
 
-        {{ range (.Paginator).Pages }}
+        {{ range (.Paginator).Pages.ByDate.Reverse }}
 
         {{ partial "card" . }}
 
